@@ -7,6 +7,7 @@ const q=new URLSearchParams(location.search);
 const pad2=n=>String(n).padStart(2,"0");
 const fmt=t=>{t=Math.floor(t||0);return Math.floor(t/60)+":"+String(t%60).padStart(2,"0")};
 document.documentElement.classList.add("js");
+const cv=n=>getComputedStyle(document.body).getPropertyValue(n).trim();
 
 fetch("data/projects.json").then(r=>r.json()).then(init);
 
@@ -19,13 +20,12 @@ function init(D){
 
   /* shell */
   $(".top").innerHTML=`<a class="logo" href="index.html" aria-label="Inicio">Memoria<br>viva</a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menú <svg viewBox="0 0 34 22" width="34" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M1 4c4-3 6 3 10 0s6-3 9 1 7-2 13-1"/><path d="M1 11c3 3 7-3 11 0s5 3 9-1 8 2 13 1"/><path d="M1 18c5-2 6 3 10 1s6-4 10 0 8 0 12-2"/></svg></button>`;
-  const menu=document.createElement("nav");menu.className="menu";menu.id="menu";
-  menu.innerHTML=`<button class="x" aria-label="Cerrar"></button><a href="index.html">Inicio</a>`+D.campuses.map(c=>`<a href="campus.html?c=${c.id}">${esc(c.name)}</a>`).join("")+``;
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 46 16" width="46" height="16" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" aria-hidden="true"><path d="M1 3c4-2 6 2 10 0s6-2 9 1 7-2 13-1 7 1 12-1"/><path d="M1 8c3 2 7-2 11 0s5 2 9-1 8 2 13 1 6-1 11 0"/><path d="M1 13c5-2 6 2 10 1s6-3 10 0 8 0 12-2 6 1 12 1"/></svg><span>Menú</span></button>`;
+  const menu=document.createElement("nav");menu.className="nav";menu.id="menu";menu.setAttribute("aria-label","Principal");
+  menu.innerHTML=`<a href="index.html"><b>00</b>Inicio</a>`+D.campuses.map((c,i)=>`<a href="campus.html?c=${c.id}"><b>${pad2(i+1)}</b>${esc(c.name)}</a>`).join("");
   document.body.appendChild(menu);
-  const mb=$(".menu-btn"), setMenu=o=>{menu.classList.toggle("open",o);mb.setAttribute("aria-expanded",o)};
+  const mb=$(".menu-btn"), lab=$("span",mb), setMenu=o=>{menu.classList.toggle("open",o);mb.setAttribute("aria-expanded",o);lab.textContent=o?"Cerrar":"Menú"};
   mb.onclick=()=>setMenu(!menu.classList.contains("open"));
-  $(".x",menu).onclick=()=>setMenu(false);
   addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});
   $$("a",menu).forEach(a=>a.addEventListener("click",()=>setMenu(false)));
 
@@ -51,7 +51,7 @@ function init(D){
     box.addEventListener("mousemove",e=>{const r=box.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top;if(first){x=tx;y=ty;first=false}});
     box.addEventListener("mouseleave",()=>{peek.classList.remove("show");run=false;first=true});
     $$("[data-i]",box).forEach(el=>el.addEventListener("mouseenter",()=>{
-      const it=items[+el.dataset.i];peek.style.background=`linear-gradient(rgba(46,38,40,.62),rgba(46,38,40,.62)),${it.tone}`;
+      const it=items[+el.dataset.i];peek.style.background=it.tone;
       peek.innerHTML=(it.img?`<img src="${esc(it.img)}" alt="">`:"")+`<span>${esc(it.label)}</span>`;
       peek.classList.add("show");if(!run){run=true;loop()}}));
   }
@@ -136,8 +136,9 @@ function wave(c){
   const rs=()=>{const d=Math.min(2,devicePixelRatio||1);w=c.clientWidth;h=c.clientHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0)};
   rs();addEventListener("resize",rs);
   c.parentElement.addEventListener("mousemove",e=>{const r=c.getBoundingClientRect();mx=(e.clientX-r.left)/r.width;my=(e.clientY-r.top)/r.height});
+  const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
   function f(){
-    t+=.008;x.clearRect(0,0,w,h);const L=30;
+    const INK=cv("--ink"),CREAM=cv("--cream");t+=.008;x.clearRect(0,0,w,h);const L=30;
     for(let i=0;i<L;i++){
       const y0=h*(.12+.84*i/(L-1)),pts=[];
       for(let px=0;px<=w;px+=6){
@@ -147,9 +148,9 @@ function wave(c){
         pts.push([px,y0-(env*h*.2+m*h*.28)*n*(.45+i/L*.7)]);
       }
       x.beginPath();pts.forEach((p,k)=>k?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));
-      x.lineTo(w,h+4);x.lineTo(0,h+4);x.closePath();x.fillStyle="#2E2628";x.fill();
+      x.lineTo(w,h+4);x.lineTo(0,h+4);x.closePath();x.fillStyle=INK;x.fill();
       x.beginPath();pts.forEach((p,k)=>k?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));
-      x.strokeStyle="rgba(239,238,231,"+(.25+.65*i/L)+")";x.lineWidth=1.1;x.stroke();
+      x.strokeStyle=hexA(CREAM,.25+.65*i/L);x.lineWidth=1.1;x.stroke();
     }
     if(!reduce)requestAnimationFrame(f);
   }
@@ -158,10 +159,11 @@ function wave(c){
 
 /* audio player with real waveform */
 function player(host,src){
+  const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
   host.innerHTML=`<div class="player"><audio preload="metadata" src="${esc(src)}"></audio><canvas class="wv" aria-label="Forma de onda; haz clic para avanzar"></canvas><div class="pl-row"><button class="pl-btn" type="button" aria-label="Reproducir">▶</button><span class="pl-time">0:00 / 0:00</span></div></div><p class="pl-cap">Audio del proyecto</p>`;
   const a=$("audio",host),cv=$("canvas",host),btn=$("button",host),tm=$(".pl-time",host),ctx=cv.getContext("2d"),N=80;let peaks=null;
   const draw=()=>{const w=cv.width,h=cv.height,p=a.duration?a.currentTime/a.duration:0,bw=w/N;ctx.clearRect(0,0,w,h);
-    for(let i=0;i<N;i++){const v=peaks?peaks[i]:.08,bh=Math.max(4,v*h*.92);ctx.fillStyle=i/N<p?"#EFEEE7":"rgba(239,238,231,.28)";ctx.fillRect(i*bw+bw*.2,(h-bh)/2,bw*.6,bh)}
+    for(let i=0;i<N;i++){const v=peaks?peaks[i]:.08,bh=Math.max(4,v*h*.92);ctx.fillStyle=i/N<p?cv("--cream"):hexA(cv("--cream"),.28);ctx.fillRect(i*bw+bw*.2,(h-bh)/2,bw*.6,bh)}
     tm.textContent=fmt(a.currentTime)+" / "+fmt(a.duration)};
   const size=()=>{const d=Math.min(2,devicePixelRatio||1);cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;draw()};
   size();addEventListener("resize",size);
