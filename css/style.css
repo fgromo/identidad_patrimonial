@@ -1,4 +1,4 @@
-:root{--cream:#E5E8E2;--ink:#131B2B;--mute:color-mix(in srgb,var(--ink) 52%,var(--cream));--line:color-mix(in srgb,var(--ink) 18%,transparent);--r:30px;--pad:clamp(18px,3vw,44px);
+:root{--cream:#EFEEE7;--ink:#2E2628;--mute:#8d8786;--line:#2e262830;--r:30px;--pad:clamp(18px,3vw,44px);
 --disp:"Archivo","Arial Black",sans-serif;--sans:"Barlow","Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink)}
@@ -39,7 +39,7 @@ img{max-width:100%;display:block}
 .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .tag{font-size:clamp(28px,4vw,64px);line-height:1.02;max-width:13em}
 .hero-links{display:flex;gap:44px;font-size:21px;padding-bottom:6px}
-.hero-links a{border-bottom:1px solid color-mix(in srgb,var(--cream) 35%,transparent);transition:border-color .2s}
+.hero-links a{border-bottom:1px solid #efeee755;transition:border-color .2s}
 .hero-links a:hover{border-color:var(--cream)}
 
 /* sheet */
@@ -70,17 +70,17 @@ img{max-width:100%;display:block}
 .empty{font-size:clamp(26px,3.4vw,50px);color:var(--mute)}
 
 /* marquee */
-.marq{overflow:hidden;white-space:nowrap;padding:clamp(30px,5vw,80px) 0;border-top:1px solid var(--line)}
+.marq{overflow:hidden;white-space:nowrap;padding:clamp(30px,5vw,80px) 0;border-top:1px solid #2e262822}
 .marq div{display:inline-block;font-size:clamp(64px,14vw,250px);line-height:1.08;text-transform:uppercase;font-weight:300;will-change:transform;letter-spacing:-.01em}
 .marq div:nth-child(2){display:block;width:max-content}
 
 /* footer */
 .foot{position:sticky;bottom:0;z-index:0;background:var(--ink);color:var(--cream);padding:calc(var(--r) + 70px) var(--pad) 28px}
 .fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:30px;margin-bottom:clamp(50px,8vw,120px)}
-.fcols h5{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:color-mix(in srgb,var(--cream) 55%,transparent);font-weight:500;margin-bottom:12px}
+.fcols h5{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#efeee788;font-weight:500;margin-bottom:12px}
 .fcols li{list-style:none;font-size:20px}
 .fcols a:hover{opacity:.55}
-.fine{margin-top:26px;font-size:13px;color:color-mix(in srgb,var(--cream) 45%,transparent);letter-spacing:.06em}
+.fine{margin-top:26px;font-size:13px;color:#efeee777;letter-spacing:.06em}
 
 /* inner pages */
 .sheet:not(.up){padding-top:92px}
