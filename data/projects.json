@@ -1,0 +1,58 @@
+{
+  "site": {
+    "name": "Identidad patrimonial",
+    "tagline": "Inventario de patrimonio inmaterial de cuatro ciudades",
+    "manifesto": "Cada ciudad guarda lo que no se ve: una receta, una fiesta, un oficio, un sonido que solo reconoce quien creció ahí. Este sitio reúne los textos, las imágenes y los audios con que estudiantes de cuatro campus inventariaron ese patrimonio inmaterial, y lo devuelve a quienes lo habitan.",
+    "contact": "mailto:francisco.gonzalez@tec.mx",
+    "course": "AV1003B · Producción de contenidos I: texto, imagen y sonido"
+  },
+  "campuses": [
+    {
+      "id": "chihuahua",
+      "name": "Chihuahua",
+      "city": "Chihuahua",
+      "expected": 2,
+      "intro": "Frontera, sierra y llanura: patrimonio de una ciudad que mira largo.",
+      "tone": "#625D59"
+    },
+    {
+      "id": "cuernavaca",
+      "name": "Cuernavaca",
+      "city": "Cuernavaca",
+      "expected": 8,
+      "intro": "La ciudad de la eterna primavera vista desde sus oficios, sus barrancas y sus fiestas.",
+      "tone": "#6F7C7D"
+    },
+    {
+      "id": "hidalgo",
+      "name": "Hidalgo",
+      "city": "Pachuca",
+      "expected": 7,
+      "intro": "Pachuca y su región: minería, pastes, barrio y memoria sonora de una ciudad de cerros.",
+      "tone": "#8E847B"
+    },
+    {
+      "id": "laguna",
+      "name": "Laguna",
+      "city": "Torreón y Gómez Palacio",
+      "expected": 5,
+      "intro": "Desierto, río y algodón: la identidad de una región que se cuenta a sí misma.",
+      "tone": "#A89B80"
+    }
+  ],
+  "projects": [
+    {
+      "campus": "hidalgo",
+      "slug": "proyecto-de-muestra",
+      "title": "Proyecto de muestra",
+      "author": "Autoría por definir",
+      "kind": "Texto, imagen y sonido",
+      "text": [
+        "Este es un proyecto de muestra para probar la página. Aquí va el texto del inventario: qué elemento del patrimonio inmaterial se documentó, quién lo practica y por qué importa para la ciudad.",
+        "Cada párrafo es un elemento de la lista \"text\" en data/projects.json. Se pueden agregar los que hagan falta."
+      ],
+      "images": [],
+      "audio": "media/hidalgo/proyecto-de-muestra/audio.wav"
+    }
+  ]
+}
