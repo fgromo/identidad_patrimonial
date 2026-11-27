@@ -1,4 +1,4 @@
-:root{--cream:#ECECE7;--ink:#2B2B2D;--mute:color-mix(in srgb,var(--ink) 52%,var(--cream));--line:color-mix(in srgb,var(--ink) 18%,transparent);--r:30px;--pad:clamp(18px,3vw,44px);
+:root{--cream:#E5E8E2;--ink:#131B2B;--mute:color-mix(in srgb,var(--ink) 52%,var(--cream));--line:color-mix(in srgb,var(--ink) 18%,transparent);--r:30px;--pad:clamp(18px,3vw,44px);
 --disp:"Archivo","Arial Black",sans-serif;--sans:"Barlow","Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink)}
