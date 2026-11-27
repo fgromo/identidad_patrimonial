@@ -18,7 +18,7 @@ function init(D){
   const lines=s=>s.split(" ").map(w=>`<span class="ln">${esc(w)}</span>`).join("<br>");
 
   /* shell */
-  $(".top").innerHTML=`<a class="logo" href="index.html" aria-label="Inicio"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="24" cy="24" r="21"/><path d="M6 24c4-10 7-10 9 0s5 10 9 0 5-10 9 0 4 8 9 0" stroke-linecap="round"/></svg></a>
+  $(".top").innerHTML=`<a class="logo" href="index.html" aria-label="Inicio">Identidad<br>patrimonial</a>
     <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menú <i></i></button>`;
   const menu=document.createElement("nav");menu.className="menu";menu.id="menu";
   menu.innerHTML=`<button class="x" aria-label="Cerrar"></button><a href="index.html">Inicio</a>`+D.campuses.map(c=>`<a href="campus.html?c=${c.id}">${esc(c.name)}</a>`).join("")+`<a href="index.html#proyectos">Proyectos</a><a href="${esc(S.contact)}">Contacto</a>`;
