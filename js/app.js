@@ -51,7 +51,7 @@ function init(D){
     box.addEventListener("mousemove",e=>{const r=box.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top;if(first){x=tx;y=ty;first=false}});
     box.addEventListener("mouseleave",()=>{peek.classList.remove("show");run=false;first=true});
     $$("[data-i]",box).forEach(el=>el.addEventListener("mouseenter",()=>{
-      const it=items[+el.dataset.i];peek.style.background=it.tone;
+      const it=items[+el.dataset.i];peek.style.background=`linear-gradient(rgba(46,38,40,.62),rgba(46,38,40,.62)),${it.tone}`;
       peek.innerHTML=(it.img?`<img src="${esc(it.img)}" alt="">`:"")+`<span>${esc(it.label)}</span>`;
       peek.classList.add("show");if(!run){run=true;loop()}}));
   }
