@@ -14,7 +14,8 @@ img{max-width:100%;display:block}
 .top>*{pointer-events:auto}
 .logo{font-family:var(--disp);font-weight:800;font-stretch:125%;text-transform:uppercase;font-size:13px;line-height:1;letter-spacing:.02em;display:block}
 .menu-btn{background:none;border:0;color:inherit;font-size:21px;font-weight:300;display:flex;gap:14px;align-items:center;cursor:pointer}
-.menu-btn i{width:26px;height:8px;border-top:2px solid currentColor;border-bottom:2px solid currentColor}
+.menu-btn svg{display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.menu-btn:hover svg{transform:translateX(4px)}
 .menu{position:fixed;top:16px;right:16px;z-index:60;width:min(380px,calc(100vw - 32px));background:var(--taupe);color:var(--cream);border-radius:var(--r);padding:38px 42px 44px;transform-origin:top right;transform:scale(.9);opacity:0;pointer-events:none;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
 .menu.open{transform:none;opacity:1;pointer-events:auto}
 .menu a{display:block;font-size:28px;line-height:1.55;transition:opacity .2s}
@@ -124,3 +125,6 @@ img{max-width:100%;display:block}
 
 .ehe{display:block;height:auto}
 .foot .ehe{width:clamp(210px,24vw,340px);margin-top:clamp(36px,5vw,70px)}
+
+.cdet{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,48px);margin:0 var(--pad);border-top:1px solid var(--ink);padding:18px 0 0}
+.cdet p{font-size:clamp(18px,1.5vw,22px);margin-top:6px;line-height:1.3}

@@ -18,10 +18,10 @@ function init(D){
   const lines=s=>s.split(" ").map(w=>`<span class="ln">${esc(w)}</span>`).join("<br>");
 
   /* shell */
-  $(".top").innerHTML=`<a class="logo" href="index.html" aria-label="Inicio">Identidad<br>patrimonial</a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menú <i></i></button>`;
+  $(".top").innerHTML=`<a class="logo" href="index.html" aria-label="Inicio">Memoria<br>viva</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menú <svg viewBox="0 0 34 22" width="34" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M1 4c4-3 6 3 10 0s6-3 9 1 7-2 13-1"/><path d="M1 11c3 3 7-3 11 0s5 3 9-1 8 2 13 1"/><path d="M1 18c5-2 6 3 10 1s6-4 10 0 8 0 12-2"/></svg></button>`;
   const menu=document.createElement("nav");menu.className="menu";menu.id="menu";
-  menu.innerHTML=`<button class="x" aria-label="Cerrar"></button><a href="index.html">Inicio</a>`+D.campuses.map(c=>`<a href="campus.html?c=${c.id}">${esc(c.name)}</a>`).join("")+`<a href="index.html#proyectos">Proyectos</a><a href="${esc(S.contact)}">Contacto</a>`;
+  menu.innerHTML=`<button class="x" aria-label="Cerrar"></button><a href="index.html">Inicio</a>`+D.campuses.map(c=>`<a href="campus.html?c=${c.id}">${esc(c.name)}</a>`).join("")+``;
   document.body.appendChild(menu);
   const mb=$(".menu-btn"), setMenu=o=>{menu.classList.toggle("open",o);mb.setAttribute("aria-expanded",o)};
   mb.onclick=()=>setMenu(!menu.classList.contains("open"));
@@ -30,8 +30,7 @@ function init(D){
   $$("a",menu).forEach(a=>a.addEventListener("click",()=>setMenu(false)));
 
   $(".foot").innerHTML=`<div class="fcols"><div><h5>Campus</h5><ul>${D.campuses.map(c=>`<li><a href="campus.html?c=${c.id}">${esc(c.name)}</a></li>`).join("")}</ul></div>
-    <div><h5>Curso</h5><ul><li>${esc(S.course)}</li></ul></div>
-    <div><h5>Contacto</h5><ul><li><a href="${esc(S.contact)}">Escríbenos</a></li></ul></div></div>
+    <div><h5>Unidad de formación</h5><ul><li>${esc(S.unit)}</li></ul></div></div>
     <div class="wordmark" data-fit>${lines(S.name)}</div>
     <img class="ehe" src="assets/logo-ehe-blanco.png" alt="Tecnológico de Monterrey, Escuela de Humanidades y Educación"><p class="fine">Los textos, imágenes y audios pertenecen a sus autores.</p>`;
 
@@ -67,7 +66,6 @@ function init(D){
     document.title=S.name;
     $("#wm").innerHTML=lines(S.name);
     $("#tag").textContent=S.tagline;
-    $("#contact").href=S.contact;
     wave($("#wave"));
     const man=$("#manifesto");
     man.innerHTML=S.manifesto.split(" ").map(w=>`<span>${esc(w)}</span>`).join(" ");
@@ -94,6 +92,9 @@ function init(D){
     $("#crumb").innerHTML=`<a href="index.html">← Atrás</a><a href="index.html#campus">Campus</a><span>${esc(c.name)}</span>`;
     $("#wm").innerHTML=lines(c.name);
     $("#cintro").textContent=c.intro;
+    const det=[["Reto",c.reto],["Socio formador",c.partner],["Presentación",c.event]].filter(x=>x[1]).map(x=>`<div><span class="eyebrow">${x[0]}</span><p>${esc(x[1])}</p></div>`);
+    if(c.link)det.push(`<div><span class="eyebrow">${esc(c.link.label)}</span><p><a class="more" style="margin:0" href="${esc(c.link.url)}" target="_blank" rel="noopener">Ver sitio</a></p></div>`);
+    $("#cdet").innerHTML=det.join("");
     $("#cinfo").innerHTML=`${esc(c.city)}<br>${L.length} de ${c.expected} proyectos publicados`;
     $("#pl").innerHTML=L.length?rows(L):'<p class="empty">Los proyectos de este campus se publicarán pronto.</p>';
     hoverList($(".plist"),peekP(L));

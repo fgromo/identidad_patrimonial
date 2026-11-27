@@ -14,7 +14,7 @@ El nombre "Identidad patrimonial" es provisional: cámbialo en `data/projects.js
 Nota: el repositorio gratuito es público. El sitio trae `noindex` y `robots.txt` para que no aparezca en buscadores, pero cualquiera con el enlace puede verlo. Antes de publicar voces o rostros, confirma el consentimiento de los estudiantes y la política institucional.
 
 ## Agregar un proyecto
-1. Crea la carpeta `media/<campus>/<slug-del-proyecto>/` y sube ahí el audio (mp3 o m4a, idealmente menos de 20 MB) y las fotos (jpg, ancho máximo 2000 px).
+1. Crea la carpeta `media/<campus>/<slug-del-proyecto>/` y sube ahí el audio (mp3; conserva el máster en WAV aparte) y las fotos (JPG de 1600 a 2000 px en el lado mayor). Nombres consistentes, por ejemplo `01_lugar_autor.jpg` y `01_audio_autor.mp3`.
 2. En `data/projects.json`, dentro de `projects`, copia el bloque del proyecto de muestra y edítalo:
    - `campus`: `hidalgo`, `cuernavaca`, `laguna` o `chihuahua`
    - `slug`: nombre corto sin espacios ni acentos

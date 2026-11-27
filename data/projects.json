@@ -1,10 +1,9 @@
 {
   "site": {
     "name": "Identidad patrimonial",
-    "tagline": "Inventario de patrimonio inmaterial de cuatro ciudades",
-    "manifesto": "Cada ciudad guarda lo que no se ve: una receta, una fiesta, un oficio, un sonido que solo reconoce quien creció ahí. Este sitio reúne los textos, las imágenes y los audios con que estudiantes de cuatro campus inventariaron ese patrimonio inmaterial, y lo devuelve a quienes lo habitan.",
-    "contact": "mailto:francisco.gonzalez@tec.mx",
-    "course": "AV1003B · Producción de contenidos I: texto, imagen y sonido"
+    "tagline": "Patrimonio inmaterial de cuatro ciudades, en texto, imagen y sonido",
+    "manifesto": "Toda ciudad conserva mucho más de lo que muestran sus monumentos: oficios, fiestas, formas de hablar, sonidos, sabores y prácticas cotidianas. Si nadie los registra ni los cuenta, pueden dejar de oírse, verse o contarse. Este sitio reúne los textos, las imágenes y los audios con que estudiantes de cuatro campus los registraron.",
+    "unit": "AV1003B · Producción de contenidos I: texto, imagen y sonido"
   },
   "campuses": [
     {
@@ -12,32 +11,46 @@
       "name": "Chihuahua",
       "city": "Chihuahua",
       "expected": 2,
-      "intro": "Frontera, sierra y llanura: patrimonio de una ciudad que mira largo.",
-      "tone": "#625D59"
+      "intro": "Entrelazados: fotografías, registros sonoros y relatos situados para reconocer los contrastes de la vida cotidiana de Chihuahua.",
+      "tone": "#625D59",
+      "reto": "Entrelazados. Identidad y patrimonio a través de la fotografía, el sonido e historias situadas en la ciudad de Chihuahua.",
+      "partner": "Casa Chihuahua, Centro de Patrimonio Cultural"
     },
     {
       "id": "cuernavaca",
       "name": "Cuernavaca",
       "city": "Cuernavaca",
       "expected": 8,
-      "intro": "La ciudad de la eterna primavera vista desde sus oficios, sus barrancas y sus fiestas.",
-      "tone": "#6F7C7D"
+      "intro": "Reconociendo Cuernavaca: recorridos por lugares emblemáticos de la ciudad, registrados en imagen fija, imagen en movimiento y sonido.",
+      "tone": "#6F7C7D",
+      "reto": "Reconociendo Cuernavaca. Producto audiovisual, experimental y contemplativo, de espacios de la ciudad.",
+      "partner": "El Colegio de Morelos y La Tallera Siqueiros"
     },
     {
       "id": "hidalgo",
       "name": "Hidalgo",
       "city": "Pachuca",
       "expected": 7,
-      "intro": "Pachuca y su región: minería, pastes, barrio y memoria sonora de una ciudad de cerros.",
-      "tone": "#8E847B"
+      "intro": "Los sonidos de Pachuca, cuarta edición: paisajes sonoros de lugares emblemáticos de la ciudad, con registro de campo, fotografía y bitácora.",
+      "tone": "#8E847B",
+      "reto": "Los sonidos de Pachuca. Paisajes sonoros de lugares emblemáticos, montados en un sitio web público.",
+      "partner": "Dirección General de Patrimonio Cultural, Secretaría de Cultura del Estado de Hidalgo",
+      "event": "Miércoles 2 de diciembre, 10 am · Foro Cultural Efrén Rebolledo",
+      "link": {
+        "label": "Ediciones anteriores",
+        "url": "https://sites.google.com/tec.mx/los-sonidos-de-pachuca"
+      }
     },
     {
       "id": "laguna",
       "name": "Laguna",
       "city": "Torreón y Gómez Palacio",
       "expected": 5,
-      "intro": "Desierto, río y algodón: la identidad de una región que se cuenta a sí misma.",
-      "tone": "#A89B80"
+      "intro": "La Laguna resuena: relatos e imágenes del patrimonio arquitectónico, las tradiciones y la gastronomía de la Comarca Lagunera.",
+      "tone": "#A89B80",
+      "reto": "La Laguna resuena. Relatos e imágenes de nuestro patrimonio.",
+      "partner": "Grupo Radio Estéreo Mayrán (GREM) y Museo de la Revolución",
+      "event": "Inauguración de la exposición: 2 de diciembre, 7 pm · Museo de la Revolución"
     }
   ],
   "projects": [
