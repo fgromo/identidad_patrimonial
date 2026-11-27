@@ -1,4 +1,4 @@
-:root{--cream:#EFEEE7;--ink:#2E2628;--mute:#8d8786;--line:#2e262830;--r:30px;--pad:clamp(18px,3vw,44px);
+:root{--cream:#EFEEE7;--ink:#1D2023;--mute:#8d8786;--line:#2e262830;--r:30px;--pad:clamp(18px,3vw,44px);
 --disp:"Archivo","Arial Black",sans-serif;--sans:"Barlow","Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink)}
